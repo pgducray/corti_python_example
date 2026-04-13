@@ -1,6 +1,7 @@
 import requests
 import uuid
 import time
+import os
 from typing import Optional, Dict, List, BinaryIO
 from corti_client import CortiClient
 
@@ -289,7 +290,12 @@ class CortiTranscriptClient(CortiClient):
         transcript_text = " ".join(transcript_parts)
 
         folder_name = "transcripts_text"
-        file_path = folder_name + file_name
+
+        # Create folder if it doesn't exist
+        os.makedirs(folder_name, exist_ok=True)
+
+        # Properly join folder and file name
+        file_path = os.path.join(folder_name, file_name)
 
         # Write the transcript_text to the file
         try:

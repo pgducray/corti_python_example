@@ -118,18 +118,8 @@ except Exception as e:
 print("\n6️⃣  Saving transcript to file...")
 
 print(f"   📂 Saving full transcript text of {audio_path} to 'transcripts_text' folder...")
-
-folder_name = "transcripts_text"
 file_name = "Sample" + "Patient Consultation with MI.mp3" + "full_transcript.txt"
-file_path = os.path.join(folder_name, file_name)
-
-# Create folder if it doesn't exist
-if not os.path.exists(folder_name):
-    os.makedirs(folder_name)
-    print(f"📁 Created folder: {folder_name}")
-
-
-client.save_transcription_text(transcript=transcript)
+client.save_transcription_text(transcript=transcript, file_name=file_name)
 
 
 # Step 7: Clean up

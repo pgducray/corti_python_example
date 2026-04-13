@@ -9,6 +9,10 @@ __pycache__/
 *.so
 .Python
 
+# Jupiter Notebook
+*.ipynb
+
+
 # Virtual environments
 venv/
 env/
