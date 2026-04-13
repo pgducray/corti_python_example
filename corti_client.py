@@ -340,6 +340,9 @@ class CortiClient:
             >>> print(f"Credits used: {result['usageInfo']['creditsConsumed']}")
         """
         headers = self.get_headers()
+        # Add required Tenant-Name header per official API documentation
+        headers["Tenant-Name"] = self.tenant_name
+        headers["Content-Type"] = "application/json"
 
         payload = {
             "context": [
@@ -352,7 +355,7 @@ class CortiClient:
         }
 
         response = requests.post(
-            f"{self.api_url}/facts/extract",
+            f"{self.api_url}/tools/extract-facts",
             headers=headers,
             json=payload,
             timeout=30

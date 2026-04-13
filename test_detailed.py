@@ -57,7 +57,7 @@ except Exception as e:
 
 # Step 3: Extract facts
 print("\n3️⃣  Calling fact extraction API...")
-print(f"   🌐 Endpoint: {client.api_url}/facts/extract")
+print(f"   🌐 Endpoint: {client.api_url}/tools/extract-facts")
 
 try:
     response = client.extract_facts(medical_text, output_language="en-US")
