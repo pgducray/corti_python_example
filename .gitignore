@@ -1,23 +1,23 @@
 # Environment variables
 .env
-.env.local
+.envrc
 
-# Python cache
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-
-# Jupiter Notebook
-*.ipynb
-
-
-# Virtual environments
-venv/
 env/
+venv/
 ENV/
+env.bak/
+venv.bak/
 .venv
+*.egg-info/
+dist/
+build/
+*.egg
 
 # IDE
 .vscode/
@@ -25,19 +25,27 @@ ENV/
 *.swp
 *.swo
 *~
-
-# OS
 .DS_Store
-Thumbs.db
 
-# Streamlit
-.streamlit/
+# Data directories - Generated outputs
+data/transcripts/*.txt
+data/facts/*.json
+data/facts/*.txt
 
-# Data files
-feedback/
-*.csv
-transcripts/
-recordings/
+# Keep sample data but ignore large audio files in root
+/*.mp3
+/*.wav
+/*.ogg
+/*.flac
+/*.m4a
+transcripts_text/
 
 # Logs
 *.log
+logs/
+
+# Docker
+.dockerignore
+
+# OS
+Thumbs.db
