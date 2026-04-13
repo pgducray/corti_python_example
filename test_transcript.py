@@ -118,12 +118,12 @@ except Exception as e:
 print("\n6️⃣  Saving transcript to file...")
 
 print(f"   📂 Saving full transcript text of {audio_path} to 'transcripts_text' folder...")
-file_name = "Sample" + "Patient Consultation with MI.mp3" + "full_transcript.txt"
+file_name = f"{audio_folder_name}_{audio_file_name}_full_transcript.txt"
 client.save_transcription_text(transcript=transcript, file_name=file_name)
 
 
 # Step 7: Clean up
-print("\n6️7️⃣  Cleaning up resources...")
+print("\n7️⃣  Cleaning up resources...")
 try:
     client.delete_transcript(interaction_id, transcript_id)
     client.delete_recording(interaction_id, recording_id)

@@ -32,6 +32,7 @@ Complete transcription workflow management:
 - `get_transcript_status()` - Check processing status
 - `get_transcript()` - Retrieve completed transcript
 - `wait_for_transcript()` - Poll until completion
+- `save_transcription_text()` - Save transcript to text file
 - `delete_transcript()`, `delete_recording()`, `delete_interaction()` - Cleanup methods
 
 ### 3. `corti_fact_extraction_client.py` - Fact Extraction Client
@@ -114,7 +115,13 @@ transcript = client.wait_for_transcript(
 print(f"Transcript: {transcript['text']}")
 print(f"Segments: {transcript['segments']}")
 
-# Step 5: Cleanup
+# Step 5: Save transcript to file
+client.save_transcription_text(
+    transcript=transcript,
+    file_name="consultation_transcript.txt"
+)
+
+# Step 6: Cleanup
 client.delete_transcript(interaction_id, transcript_id)
 client.delete_recording(interaction_id, recording_id)
 client.delete_interaction(interaction_id)
