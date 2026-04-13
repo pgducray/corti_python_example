@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Test script for Corti fact extraction endpoint."""
 
-from corti_client import CortiClient
+from corti_fact_extraction_client import CortiFactExtractionClient
 from dotenv import load_dotenv
 import json
 import os
@@ -13,7 +13,7 @@ print("🔬 CORTI FACT EXTRACTION TEST")
 print("=" * 70)
 
 # Initialize client
-client = CortiClient()
+client = CortiFactExtractionClient()
 
 # Step 1: Authenticate
 print("\n1️⃣  Authenticating...")
